@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './index.module.css';
 
 class ContactForm extends Component {
@@ -12,6 +12,7 @@ class ContactForm extends Component {
     name: '',
     number: '',
   };
+
   submitHandler = event => {
     event.preventDefault();
     const contact = {
@@ -25,7 +26,6 @@ class ContactForm extends Component {
 
   inputHandler = ({ target }) => {
     const { value, name } = target;
-
     this.setState({ [name]: value });
   };
 
@@ -59,7 +59,9 @@ class ContactForm extends Component {
               className={styles.input}
             ></input>
           </label>
-          <button className={styles.button} type="submit">Add contact</button>
+          <button className={styles.button} type="submit">
+            Add contact
+          </button>
         </form>
       </>
     );

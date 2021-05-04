@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter';
-import styles from "./App.module.css"
+import styles from './App.module.css';
 
 class App extends Component {
   state = {
@@ -19,22 +19,21 @@ class App extends Component {
     const nextContacts = this.state.contacts;
     const prevContacts = prevState.contacts;
     if (nextContacts !== prevContacts) {
-      localStorage.setItem("contacts", JSON.stringify(nextContacts));
+      localStorage.setItem('contacts', JSON.stringify(nextContacts));
     }
   }
 
   componentDidMount() {
     try {
-      const contactsFromStorage = JSON.parse(localStorage.getItem("contacts"));
+      const contactsFromStorage = JSON.parse(localStorage.getItem('contacts'));
       contactsFromStorage && this.setState({ contacts: contactsFromStorage });
     } catch {
-      console.log("Невалидный JSON");
+      console.log('Invalid JSON');
     }
   }
 
   inputHandler = ({ target }) => {
     const { value, name } = target;
-
     this.setState({ [name]: value });
   };
 
